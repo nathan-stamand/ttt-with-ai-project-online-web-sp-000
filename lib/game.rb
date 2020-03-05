@@ -47,6 +47,7 @@ class Game
   end
   
   def winner
+
     if over?
       if draw? 
         winner = nil
@@ -54,19 +55,18 @@ class Game
         winning_combo = won?
         if @board.cells[winning_combo[0]] == "X"
           winner = "X"
-
         else 
           winner = "O"
         end
       end
       winner
     end
-  end 
+  end
   
   def turn 
+    @board.display
     player = current_player
     possible_move = player.move(@board)
-    
     if @board.valid_move?(possible_move)
       @board.update(possible_move, player)
     else
@@ -82,13 +82,12 @@ class Game
       turn 
     end
     if draw?
+      @board.display
       puts "Cat's Game!"
     else 
+      @board.display
       puts "Congratulations #{winner}!"
     end 
   end 
-  
-
-  
   
 end
