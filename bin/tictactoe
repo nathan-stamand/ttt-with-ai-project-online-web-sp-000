@@ -3,7 +3,7 @@
 require_relative '../config/environment'
 new_game = "Y"
 
-while new_game == "Y"
+while new_game == "Y" || new_game == "y"
   
   puts "What sort of game would you like to play? (1, 2, or 0 player?)"
   answer = gets.strip.to_i
